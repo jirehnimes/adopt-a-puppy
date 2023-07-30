@@ -1,38 +1,17 @@
+import PuppyAPI from '@/api/puppy.api';
 import { PageContainer } from '@/components/app';
-import { Button, Checkbox, Field, Form, FormInputSearch } from '@/components/common';
+import { FrontPuppiesFilterForm } from '@/components/pages';
 
 import styles from './page-puppies.module.sass';
 
-const PageHouse = () => {
+const PageHouse = async () => {
+  const puppies = await PuppyAPI().findAll();
+
   return (
     <div id='page-puppies'>
       <PageContainer>
         <div className={`container ${styles.container}`}>
-          <Form>
-            <FormInputSearch showButton={false} />
-            <Checkbox>TEST</Checkbox>
-
-            <div className='form-action'>
-              <Field
-                advance={false}
-                grouped
-                groupAlign='centered'
-              >
-                <Field.Control>
-                  <Button
-                    type='submit'
-                    className='is-primary'
-                    variants={['rounded']}
-                  >
-                    Find My Puppy
-                  </Button>
-                </Field.Control>
-                <Field.Control>
-                  <Button variants={['outlined', 'rounded']}>Clear</Button>
-                </Field.Control>
-              </Field>
-            </div>
-          </Form>
+          <FrontPuppiesFilterForm />
         </div>
       </PageContainer>
     </div>

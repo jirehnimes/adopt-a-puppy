@@ -27,3 +27,6 @@ export { default as FormInputCheckboxes } from './form/input-checkboxes';
 // COLUMN
 export { default as Columns } from './columns';
 export { default as ColumnsColumn } from './columns/column';
+// CARD
+export { default as Card } from './card';
+export { default as CardImage } from './card/image';
