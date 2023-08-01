@@ -20,6 +20,7 @@ type ButtonPropsType = {
   variants?: (keyof typeof ButtonVariantClass)[];
   size?: keyof typeof ButtonSizeClass;
   responsive?: boolean;
+  fullWidth?: boolean;
   children: ReactNode;
 } & DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
 
@@ -27,20 +28,29 @@ const Button = ({
   variants = ['normal'],
   size = 'normal',
   responsive = false,
+  fullWidth = false,
   children,
   ...props
 }: ButtonPropsType) => {
   const { className: propsClassName, ...otherProps } = props;
-  const responsiveClass = responsive === true ? 'is-responsive' : '';
   const formattedVariants = variants
     .map((_variant: keyof typeof ButtonVariantClass) => ButtonVariantClass[_variant])
     .join(' ');
-  const className = `button ${ButtonSizeClass[size]} ${responsiveClass} ${formattedVariants} ${propsClassName}`;
+  const classes = [
+    'button',
+    ButtonSizeClass[size],
+    responsive === true ? 'is-responsive' : '',
+    fullWidth === true ? 'is-fullwidth' : '',
+    formattedVariants,
+    propsClassName,
+  ]
+    .join(' ')
+    .trim();
 
   return (
     <button
       type='button'
-      className={className}
+      className={classes}
       {...otherProps}
     >
       {children}

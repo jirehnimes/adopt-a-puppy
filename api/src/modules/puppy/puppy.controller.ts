@@ -6,9 +6,11 @@ import {
   Param,
   Patch,
   Post,
+  Query,
 } from '@nestjs/common';
 
 import { CreatePuppyInputDto } from './dto/create-puppy.dto';
+import { FindAllPuppyQueryDto } from './dto/find-all-puppy.dto';
 // import { UpdatePuppyDto } from './dto/update-puppy.dto';
 import { PuppyService } from './puppy.service';
 
@@ -17,13 +19,13 @@ export class PuppyController {
   constructor(private readonly puppyService: PuppyService) {}
 
   @Post()
-  create(@Body() createPuppyDto: CreatePuppyInputDto) {
-    return this.puppyService.create(createPuppyDto);
+  create(@Body() inputDto: CreatePuppyInputDto) {
+    return this.puppyService.create(inputDto);
   }
 
   @Get()
-  findAll() {
-    return this.puppyService.findAll();
+  findAll(@Query() queryDto: FindAllPuppyQueryDto) {
+    return this.puppyService.findAll(queryDto);
   }
 
   @Get(':id')

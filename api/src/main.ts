@@ -19,7 +19,7 @@ async function bootstrap() {
     // prettier-ignore
     AppModule,
     new FastifyAdapter({
-      logger: false,
+      logger: true,
     }),
   );
 

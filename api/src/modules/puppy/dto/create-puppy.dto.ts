@@ -62,9 +62,9 @@ export class CreatePuppyOutputDto
   extends CreatePuppyInputDto
   implements PuppyEntity
 {
-  @IsNumber()
+  @IsString()
   @IsNotEmpty()
-  id: number;
+  id: string;
 
   @IsString({ each: true })
   @IsArray()

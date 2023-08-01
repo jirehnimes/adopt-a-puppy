@@ -15,18 +15,16 @@ const FieldControl = ({
   hasIconsRight = false,
   children,
 }: FieldControlPropsType) => {
-  return (
-    <div
-      className={[
-        'control',
-        hasIconsLeft === true ? 'has-icons-left' : '',
-        hasIconsRight === true ? 'has-icons-right' : '',
-        fullWidth === true ? 'is-expanded' : '',
-      ].join(' ')}
-    >
-      {children}
-    </div>
-  );
+  const classes = [
+    'control',
+    hasIconsLeft === true ? 'has-icons-left' : '',
+    hasIconsRight === true ? 'has-icons-right' : '',
+    fullWidth === true ? 'is-expanded' : '',
+  ]
+    .join(' ')
+    .trim();
+
+  return <div className={classes}>{children}</div>;
 };
 
 export default FieldControl;

@@ -1,9 +1,14 @@
+import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { Module } from '@nestjs/common';
-import { PuppyService } from './puppy.service';
+
+import { PuppyEntity } from '@/database/entities';
+
 import { PuppyController } from './puppy.controller';
+import { PuppyService } from './puppy.service';
 
 @Module({
+  imports: [MikroOrmModule.forFeature([PuppyEntity])],
   controllers: [PuppyController],
-  providers: [PuppyService]
+  providers: [PuppyService],
 })
 export class PuppyModule {}

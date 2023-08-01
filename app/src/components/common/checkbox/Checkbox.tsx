@@ -1,13 +1,23 @@
-import React, { ReactNode } from 'react';
+import React, { FC, ReactNode } from 'react';
+import { UseFormRegisterReturn } from 'react-hook-form';
 
 import styles from './checkbox.module.sass';
 
 type CheckboxPropsType = {
-  disabled?: boolean;
+  value: any;
   children: ReactNode;
+  model?: UseFormRegisterReturn<any>;
+  disabled?: boolean;
 };
 
-const Checkbox = ({ disabled = false, children }: CheckboxPropsType) => {
+export type CheckboxType = FC<CheckboxPropsType>;
+
+const Checkbox: CheckboxType = ({
+  value,
+  children,
+  model,
+  disabled = false,
+}: CheckboxPropsType) => {
   return (
     <label
       className={`checkbox ${styles.checkbox}`}
@@ -16,6 +26,8 @@ const Checkbox = ({ disabled = false, children }: CheckboxPropsType) => {
       <input
         type='checkbox'
         {...(disabled === true && { disabled })}
+        value={value}
+        {...model}
       />
       {children}
     </label>

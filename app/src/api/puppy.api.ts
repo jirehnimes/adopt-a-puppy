@@ -1,18 +1,17 @@
+import { PuppyFilterType } from '@/types/puppy.types';
+
 const API_URL = 'http://localhost:3000/api/puppy';
 
 const PuppyAPI = () => ({
-  findAll: async () => {
-    try {
-      const puppies = await fetch(API_URL);
+  findAll: async (filters: PuppyFilterType) => {
+    const queryParams = new URLSearchParams(filters as any).toString();
+    console.log('QUERY', queryParams);
 
-      if (puppies.ok === true) return await puppies.json();
+    const puppies = await fetch(API_URL, { next: { revalidate: 5000 } });
 
-      return false;
-    } catch (error: any) {
-      console.error(error);
+    if (puppies.ok === false) throw new Error(`${PuppyAPI.name} findAll request failed.`);
 
-      return false;
-    }
+    return await puppies.json();
   },
 });
 

@@ -1,0 +1,25 @@
+@import '../../../../../styles/mixins/box-shadows'
+
+.front-puppies-list
+  padding: 4em 0
+
+.card
+  border-radius: 20px
+  overflow: hidden
+  cursor: pointer
+  height: 380px
+
+  &:hover
+    @include box-shadow4
+
+.card-image
+  & > [class^="image"]
+    height: 200px
+    max-height: 200px
+    width: 100%
+    overflow: hidden
+
+    img
+      position: absolute
+      top: -50%
+      left: 0

@@ -1,11 +1,18 @@
-import React, { ReactNode } from 'react';
+import React, { HTMLAttributes, ReactNode } from 'react';
 
 type FormPropsType = {
   children: ReactNode;
-};
+} & HTMLAttributes<HTMLFormElement>;
 
-const Form = ({ children }: FormPropsType) => {
-  return <form className='form'>{children}</form>;
+const Form = ({ children, ...props }: FormPropsType) => {
+  return (
+    <form
+      className='form'
+      {...props}
+    >
+      {children}
+    </form>
+  );
 };
 
 export default Form;

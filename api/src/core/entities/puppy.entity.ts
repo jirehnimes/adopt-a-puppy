@@ -1,6 +1,8 @@
 import { GENDER } from '../consts/common.const';
 import { PUPPY_SIZE } from '../consts/puppy.const';
 
+export const PUPPY_TABLE_NAME = 'puppy';
+
 export enum PUPPY_ENTITY_FIELD {
   ID = 'id',
   NAME = 'name',
@@ -15,7 +17,7 @@ export enum PUPPY_ENTITY_FIELD {
 }
 
 export interface IPuppyEntity {
-  [PUPPY_ENTITY_FIELD.ID]: number;
+  [PUPPY_ENTITY_FIELD.ID]: string;
   [PUPPY_ENTITY_FIELD.NAME]: string;
   [PUPPY_ENTITY_FIELD.AGE]: number;
   [PUPPY_ENTITY_FIELD.GENDER]: GENDER;

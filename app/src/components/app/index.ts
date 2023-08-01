@@ -5,3 +5,5 @@ export { default as PageContainer } from './page-container';
 export { default as FrontHomeHero } from './front/home/hero';
 export { default as FrontHomeRecommendation } from './front/home/recommendation';
 export { default as FilterCheckboxesGender } from './filter/checkboxes-gender';
+export { default as FilterCheckboxesVaccinated } from './filter/checkboxes-vaccinated';
+export { default as FilterCheckboxesNeutered } from './filter/checkboxes-neutered';

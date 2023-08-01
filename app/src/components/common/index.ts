@@ -30,3 +30,11 @@ export { default as ColumnsColumn } from './columns/column';
 // CARD
 export { default as Card } from './card';
 export { default as CardImage } from './card/image';
+export { default as CardContent } from './card/content';
+export { default as CardHeader } from './card/header';
+export { default as CardFooter } from './card/footer';
+export { default as CardFooterItem } from './card/footer/item';
+// MEDIA
+export { default as Media } from './media';
+export { default as MediaContent } from './media/content';
+export { default as FormInputCheckboxesCheckbox } from './form/input-checkboxes/checkbox';

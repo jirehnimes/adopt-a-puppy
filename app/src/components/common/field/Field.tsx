@@ -13,36 +13,36 @@ type FieldChildrenType = {
 };
 
 type FieldPropsType = {
+  horizontal?: boolean;
   advance?: boolean;
   grouped?: boolean;
   groupAlign?: 'left' | 'centered' | 'right';
+  className?: string;
   children: ReactNode;
 };
 
 type FieldType = FC<FieldPropsType> & FieldChildrenType;
 
 const Field: FieldType = ({
+  horizontal = false,
   advance = true,
   grouped = false,
   groupAlign = 'left',
+  className,
   children,
 }: FieldPropsType) => {
-  return (
-    <div
-      className={`
-        field
-        ${advance === true && 'has-addons'}
-        ${grouped === true && 'is-grouped'}
-        ${
-          grouped === true &&
-          !!groupAlign === true &&
-          `is-grouped-${groupAlign}`
-        }
-      `}
-    >
-      {children}
-    </div>
-  );
+  const classes = [
+    'field',
+    advance === true ? 'has-addons' : '',
+    grouped === true ? 'is-grouped' : '',
+    grouped === true && !!groupAlign === true ? `is-grouped-${groupAlign}` : '',
+    horizontal === true ? 'is-horizontal' : '',
+    className,
+  ]
+    .join(' ')
+    .trim();
+
+  return <div className={classes}>{children}</div>;
 };
 
 Field.Label = FieldLabel;
