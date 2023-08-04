@@ -7,3 +7,8 @@ export { default as FrontHomeRecommendation } from './front/home/recommendation'
 export { default as FilterCheckboxesGender } from './filter/checkboxes-gender';
 export { default as FilterCheckboxesVaccinated } from './filter/checkboxes-vaccinated';
 export { default as FilterCheckboxesNeutered } from './filter/checkboxes-neutered';
+export { default as AdminSidebar } from './admin/sidebar';
+export { default as AdminSidebarBrand } from './admin/sidebar/brand';
+export { default as ButtonDelete } from './button-delete';
+export { default as AdminHeaderActions } from './admin/header-actions';
+export { default as AdminBox } from './admin/box';

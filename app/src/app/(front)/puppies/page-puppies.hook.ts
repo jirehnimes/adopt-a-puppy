@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import PuppyAPI from '@/api/puppy.api';
@@ -7,7 +7,7 @@ import { PUPPY_GENDER } from '@/consts/puppy.consts';
 import { PuppyFilterType } from '@/types/puppy.types';
 
 const INITIAL_FILTERS: PuppyFilterType = {
-  search: null,
+  search: '',
   gender: [PUPPY_GENDER.MALE, PUPPY_GENDER.FEMALE],
   is_vaccinated: [BOOLEAN_STRING.TRUE, BOOLEAN_STRING.FALSE],
   is_neutered: [BOOLEAN_STRING.TRUE, BOOLEAN_STRING.FALSE],
@@ -19,16 +19,11 @@ const usePagePuppiesHook = () => {
     defaultValues: { ...INITIAL_FILTERS },
   });
   const { getValues, handleSubmit } = formFilters;
-
-  // const [filters, setFilters] = useState<PuppyFilterType>({ ...INITIAL_FILTERS });
   const [puppies, setPuppies] = useState<any[]>([]);
 
-  const submitFilters = handleSubmit((formData) => {
-    console.log(formData);
-    getPuppies();
-  });
+  const submitFilters = handleSubmit(() => getPuppies());
 
-  const getPuppies = async () => {
+  const getPuppies = useCallback(async () => {
     try {
       const response = await PuppyAPI().findAll(getValues());
       setPuppies(response);
@@ -36,11 +31,11 @@ const usePagePuppiesHook = () => {
       // TODO: Show error message.
       console.error(error);
     }
-  };
+  }, [getValues]);
 
-  // useEffect(() => {
-  //   getPuppies();
-  // });
+  useEffect(() => {
+    getPuppies();
+  }, [getPuppies]);
 
   return {
     formFilters: { ...formFilters, submitFilters },

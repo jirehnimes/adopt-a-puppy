@@ -1,0 +1,27 @@
+@import 'bulma/sass/helpers/color'
+
+.admin-layout
+  position: relative
+  width: 100vw
+  height: 100vh
+  margin: 0
+  padding: 0
+  overflow: hidden
+  background-color: $dark
+
+  // Flex
+  display: flex
+
+  main
+    width: 100%
+    height: 100%
+    padding: 4rem
+    overflow-y: scroll
+
+    & [class^='title-container']
+      justify-content: unset
+      align-items: left
+
+    & [class^='box']
+      width: 100%
+      min-height: 100%

@@ -1,0 +1,21 @@
+.table
+  th
+    vertical-align: bottom
+
+  & [class*='gender'],
+  & [class*='age'],
+  & [class*='is-vaccinated'],
+  & [class*='is-neutered']
+    width: 100px
+    text-align: center !important
+
+  & [class*='actions']
+    width: 140px
+
+  & td[class*='actions'] button
+    margin-right: 8px
+
+  & [class^='loader']
+    td
+      vertical-align: middle
+      text-align: center !important

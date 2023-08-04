@@ -1,10 +1,18 @@
-import React, { HTMLAttributes, ReactNode } from 'react';
+import React, { FC, HTMLAttributes, ReactNode } from 'react';
+
+import FormActions, { FormActionsType } from './actions/FormActions';
+
+type FormChildrenType = {
+  Actions: FormActionsType;
+};
 
 type FormPropsType = {
   children: ReactNode;
 } & HTMLAttributes<HTMLFormElement>;
 
-const Form = ({ children, ...props }: FormPropsType) => {
+type FormType = FC<FormPropsType> & FormChildrenType;
+
+const Form: FormType = ({ children, ...props }: FormPropsType) => {
   return (
     <form
       className='form'
@@ -14,5 +22,7 @@ const Form = ({ children, ...props }: FormPropsType) => {
     </form>
   );
 };
+
+Form.Actions = FormActions;
 
 export default Form;

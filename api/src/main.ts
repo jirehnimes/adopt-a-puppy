@@ -1,5 +1,6 @@
 import compression from '@fastify/compress';
 import cookie from '@fastify/cookie';
+import cors from '@fastify/cors';
 import csrf from '@fastify/csrf-protection';
 import helmet from '@fastify/helmet';
 import { ValidationPipe } from '@nestjs/common';
@@ -28,13 +29,24 @@ async function bootstrap() {
   await app.register(cookie);
   await app.register(csrf);
 
-  app.enableCors({
+  app.register(cors, {
     origin: ['*'],
+    allowedHeaders: [
+      'Origin',
+      'X-Requested-With',
+      'Accept',
+      'Content-Type',
+      'Content-Length',
+      'Authorization',
+      'Access-Control-Allow-Methods',
+      'Access-Control-Request-Method',
+    ],
     methods: [
       HTTP_METHOD.GET,
       HTTP_METHOD.POST,
       HTTP_METHOD.PATCH,
       HTTP_METHOD.DELETE,
+      HTTP_METHOD.OPTIONS,
     ],
     credentials: true,
   });

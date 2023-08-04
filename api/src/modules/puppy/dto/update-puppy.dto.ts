@@ -1,7 +1,3 @@
-import { PartialType } from '@nestjs/mapped-types';
+import { CreatePuppyInputDto } from './create-puppy.dto';
 
-// import { CreatePuppyDto } from './create-puppy.dto';
-
-// export class UpdatePuppyDto extends PartialType(CreatePuppyDto) {}
-
-export default {};
+export class UpdatePuppyInputDto extends CreatePuppyInputDto {}

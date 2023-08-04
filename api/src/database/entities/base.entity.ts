@@ -1,10 +1,9 @@
-import {
-  Entity,
-  PrimaryKey,
-  Property,
-  SerializedPrimaryKey,
-} from '@mikro-orm/core';
+import { Entity, PrimaryKey, SerializedPrimaryKey } from '@mikro-orm/core';
 import { ObjectId } from '@mikro-orm/mongodb';
+
+import CreatedTimestampProperty from '../properties/created-timestamp.property';
+import DeletedTimestampProperty from '../properties/deleted-timestamp.property';
+import UpdatedTimestampProperty from '../properties/updated-timestamp.property';
 
 @Entity({ abstract: true })
 export default abstract class BaseEntity {
@@ -14,12 +13,12 @@ export default abstract class BaseEntity {
   @SerializedPrimaryKey()
   id!: string;
 
-  @Property({ type: 'datetime', nullable: true })
+  @CreatedTimestampProperty()
   created_timestamp?: string;
 
-  @Property({ type: 'datetime', nullable: true })
+  @UpdatedTimestampProperty()
   updated_timestamp?: string;
 
-  @Property({ type: 'datetime', nullable: true })
+  @DeletedTimestampProperty()
   deleted_timestamp?: string;
 }

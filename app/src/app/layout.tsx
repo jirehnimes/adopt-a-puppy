@@ -2,9 +2,8 @@ import { config as FontAwesomeConfig } from '@fortawesome/fontawesome-svg-core';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
+import 'animate.css';
 import '@/styles/app.sass';
-
-import { FrontFooter, FrontNavbar } from '@/components/app';
 
 FontAwesomeConfig.autoAddCss = false;
 
@@ -23,21 +22,10 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang='en'
-      className='has-navbar-fixed-top'
-    >
-      <body className={inter.className}>
-        <FrontNavbar />
-        {children}
-        <FrontFooter />
-      </body>
+    <html lang='en'>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

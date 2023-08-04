@@ -11,6 +11,7 @@ import {
 
 import { CreatePuppyInputDto } from './dto/create-puppy.dto';
 import { FindAllPuppyQueryDto } from './dto/find-all-puppy.dto';
+import { UpdatePuppyInputDto } from './dto/update-puppy.dto';
 // import { UpdatePuppyDto } from './dto/update-puppy.dto';
 import { PuppyService } from './puppy.service';
 
@@ -30,16 +31,16 @@ export class PuppyController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.puppyService.findOne(+id);
+    return this.puppyService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updatePuppyDto: any) {
-    return this.puppyService.update(+id, updatePuppyDto);
+  update(@Param('id') id: string, @Body() updatePuppyDto: UpdatePuppyInputDto) {
+    return this.puppyService.update(id, updatePuppyDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.puppyService.remove(+id);
+    return this.puppyService.remove(id);
   }
 }

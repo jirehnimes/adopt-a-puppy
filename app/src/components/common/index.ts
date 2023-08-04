@@ -3,6 +3,10 @@ export { default as Input } from './input';
 export { default as Button } from './button';
 export { default as Checkbox } from './checkbox';
 export { default as Footer } from './footer';
+export { default as Title } from './title';
+export { default as Loader } from './loader';
+export { default as Select } from './select';
+export { default as Box } from './box';
 // NAVBAR
 export { default as Navbar } from './navbar';
 export { default as NavbarPosition } from './navbar/position';
@@ -23,7 +27,9 @@ export { default as FieldBody } from './field/body';
 export { default as Form } from './form';
 export { default as FormInput } from './form/input';
 export { default as FormInputSearch } from './form/input-search';
+export { default as FormInputSelect } from './form/input-select';
 export { default as FormInputCheckboxes } from './form/input-checkboxes';
+export { default as FormInputCheckboxesCheckbox } from './form/input-checkboxes/checkbox';
 // COLUMN
 export { default as Columns } from './columns';
 export { default as ColumnsColumn } from './columns/column';
@@ -37,4 +43,5 @@ export { default as CardFooterItem } from './card/footer/item';
 // MEDIA
 export { default as Media } from './media';
 export { default as MediaContent } from './media/content';
-export { default as FormInputCheckboxesCheckbox } from './form/input-checkboxes/checkbox';
+export { default as FormActions } from './form/actions';
+export { default as FieldMessage } from './field/message';

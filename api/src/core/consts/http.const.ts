@@ -1,10 +1,11 @@
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export enum HTTP_METHOD {
-  GET = 'get',
-  POST = 'post',
-  PATCH = 'patch',
-  PUT = 'put',
-  DELETE = 'delete',
+  GET = 'GET',
+  POST = 'POST',
+  PATCH = 'PATCH',
+  PUT = 'PUT',
+  DELETE = 'DELETE',
+  OPTIONS = 'OPTIONS',
 }
 
 export enum HTTP_STATUS {

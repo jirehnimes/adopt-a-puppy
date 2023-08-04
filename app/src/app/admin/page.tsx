@@ -1,3 +1,12 @@
-export default function Admin() {
-  return <h1>ADMIN</h1>;
-}
+'use client';
+
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+
+const PageAdminHome = () => {
+  const router = useRouter();
+
+  useEffect(() => router.push('/admin/database/puppies'));
+};
+
+export default PageAdminHome;
