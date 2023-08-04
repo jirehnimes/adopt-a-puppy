@@ -9,11 +9,7 @@ import { AdminDatabasePuppiesList } from '@/components/pages';
 import useAdminDatabasePuppiesHook from './admin-database-puppies.hook';
 import styles from './admin-database-puppies.module.sass';
 
-type PageAdminDatabasePuppiesPropsType = {
-  children: ReactNode;
-};
-
-const PageAdminDatabasePuppies = ({ children }: PageAdminDatabasePuppiesPropsType) => {
+const PageAdminDatabasePuppies = () => {
   const router = useRouter();
   const { filters, deletePuppy } = useAdminDatabasePuppiesHook();
 

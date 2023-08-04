@@ -14,13 +14,7 @@ import {
 
 import useAdminDatabasePuppiesCreateHook from './admin-database-puppies-create.hook';
 
-type PageAdminDatabasePuppiesFormPropsType = {
-  children: ReactNode;
-};
-
-const PageAdminDatabasePuppiesFormCreate = ({
-  children,
-}: PageAdminDatabasePuppiesFormPropsType) => {
+const PageAdminDatabasePuppiesFormCreate = () => {
   const router = useRouter();
   const { form } = useAdminDatabasePuppiesCreateHook();
   const {
