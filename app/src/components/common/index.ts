@@ -7,6 +7,7 @@ export { default as Title } from './title';
 export { default as Loader } from './loader';
 export { default as Select } from './select';
 export { default as Box } from './box';
+export { default as Notification } from './notification';
 // NAVBAR
 export { default as Navbar } from './navbar';
 export { default as NavbarPosition } from './navbar/position';
@@ -23,6 +24,7 @@ export { default as FieldLabel } from './field/label';
 export { default as FieldControl } from './field/control';
 export { default as FieldIcon } from './field/icon';
 export { default as FieldBody } from './field/body';
+export { default as FieldMessage } from './field/message';
 // FORM
 export { default as Form } from './form';
 export { default as FormInput } from './form/input';
@@ -30,6 +32,7 @@ export { default as FormInputSearch } from './form/input-search';
 export { default as FormInputSelect } from './form/input-select';
 export { default as FormInputCheckboxes } from './form/input-checkboxes';
 export { default as FormInputCheckboxesCheckbox } from './form/input-checkboxes/checkbox';
+export { default as FormActions } from './form/actions';
 // COLUMN
 export { default as Columns } from './columns';
 export { default as ColumnsColumn } from './columns/column';
@@ -43,5 +46,3 @@ export { default as CardFooterItem } from './card/footer/item';
 // MEDIA
 export { default as Media } from './media';
 export { default as MediaContent } from './media/content';
-export { default as FormActions } from './form/actions';
-export { default as FieldMessage } from './field/message';

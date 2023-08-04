@@ -50,8 +50,6 @@ const AdminDatabasePuppiesList = async ({
       </>
     );
   } catch (error: any) {
-    console.error('HERE', error);
-
     return (
       <tr>
         <td

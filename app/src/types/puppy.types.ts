@@ -8,6 +8,18 @@ export type PuppyFilterType = {
   is_neutered: BOOLEAN_STRING[];
 };
 
+export type PuppyProfileType = {
+  name: string;
+  age: number;
+  gender: PUPPY_GENDER;
+  size: PUPPY_SIZE;
+  is_vaccinated: boolean;
+  is_neutered: boolean;
+  photo_url: string;
+  breed: string;
+  traits: string[];
+};
+
 export type PuppyFormCreateType = {
   name: string | null;
   age: number | null;
