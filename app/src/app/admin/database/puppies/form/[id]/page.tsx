@@ -1,7 +1,6 @@
 'use client';
 
-import { useParams, useRouter } from 'next/navigation';
-import { ReactNode } from 'react';
+import { useRouter } from 'next/navigation';
 
 import { Button, Columns, Field, Form, FormInput, FormInputSelect } from '@/components/common';
 import { BOOLEAN_STRING } from '@/consts/common.consts';
@@ -9,13 +8,7 @@ import { PUPPY_GENDER, PUPPY_SIZE } from '@/consts/puppy.consts';
 
 import useAdminDatabasePuppiesUpdateHook from './admin-database-puppies-update.hook';
 
-type PageAdminDatabasePuppiesFormPropsType = {
-  children: ReactNode;
-};
-
-const PageAdminDatabasePuppiesFormUpdate = ({
-  children,
-}: PageAdminDatabasePuppiesFormPropsType) => {
+const PageAdminDatabasePuppiesFormUpdate = () => {
   const router = useRouter();
   const { form } = useAdminDatabasePuppiesUpdateHook();
   const { register, reset, submitForm } = form;
