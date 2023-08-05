@@ -1,11 +1,15 @@
 'use client';
 
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 import defaultImage from '@/assets/images/logo-color.png';
 import { PageContainer } from '@/components/app';
-import { Button, Columns } from '@/components/common';
+import { Button, Columns, Container, Tags } from '@/components/common';
 import { FrontPuppyHero } from '@/components/pages';
+import { APP_COLOR_STYLE } from '@/consts/common.consts';
+import { APP_ROUTES } from '@/consts/routes.consts';
+import { titleCase } from '@/helpers/string.helpers';
 
 import usePagePuppyHook from './page-puppy.hook';
 import styles from './page-puppy.module.sass';
@@ -15,21 +19,28 @@ type PagePuppyPropsType = {
 };
 
 const PagePuppy = ({ params }: PagePuppyPropsType) => {
+  const puppyID = params?.id;
+  const router = useRouter();
   const { puppy } = usePagePuppyHook(params.id);
+
+  const goToAdoption = () => router.push(APP_ROUTES.ADOPTION_FORM(puppyID));
+  const goBackToList = () => router.push(APP_ROUTES.PUPPY_LIST);
 
   return (
     <div id='page-puppy'>
       <PageContainer>
-        <div className={`container ${styles.container}`}>
-          <Columns>
+        <Container className={styles.container}>
+          <Columns className={styles.header}>
             <Columns.Column size={4}>
-              <Image
-                src={puppy?.photo_url || defaultImage}
-                width={0}
-                height={0}
-                style={{ width: '100%', height: 'auto' }}
-                alt='Puppy profile picture'
-              />
+              <div className={styles['image-container']}>
+                <Image
+                  src={puppy?.photo_url || defaultImage}
+                  width={0}
+                  height={0}
+                  alt='Puppy profile picture'
+                  unoptimized
+                />
+              </div>
             </Columns.Column>
 
             <Columns.Column size={8}>
@@ -43,16 +54,45 @@ const PagePuppy = ({ params }: PagePuppyPropsType) => {
           <Columns>
             <Columns.Column size={4}>
               <Button
-                className='is-primary'
+                className='is-primary mt-2 mb-4'
                 variants={['rounded']}
                 fullWidth
+                onClick={goToAdoption}
               >
                 Adopt Me
+              </Button>
+
+              <Button
+                className='is-primary'
+                variants={['outlined', 'rounded']}
+                fullWidth
+                onClick={goBackToList}
+              >
+                Go Back
               </Button>
             </Columns.Column>
 
             <Columns.Column size={8}>
+              <Tags className='mt-2'>
+                {!!puppy?.is_vaccinated === true && (
+                  <Tags.Tag color={APP_COLOR_STYLE.PRIMARY}>Vaccinated</Tags.Tag>
+                )}
+                {!!puppy?.is_neutered === true && (
+                  <Tags.Tag color={APP_COLOR_STYLE.PRIMARY}>Neutered</Tags.Tag>
+                )}
+              </Tags>
+
               <div className='content'>
+                <h2>Other Details</h2>
+                <p className='mb-1'>
+                  <b>Age:</b> {puppy?.age || 0} year/s old.
+                </p>
+                <p className='mb-1'>
+                  <b>Gender:</b> {titleCase(puppy?.gender) || 'N/A'}
+                </p>
+
+                <hr />
+
                 <h1>Hello World</h1>
                 <p>
                   Lorem ipsum
@@ -80,15 +120,25 @@ const PagePuppy = ({ params }: PagePuppyPropsType) => {
               </div>
 
               <Button
-                className='is-primary'
+                className='is-primary my-4'
                 variants={['rounded']}
                 fullWidth
+                onClick={goToAdoption}
               >
                 Adopt Me
               </Button>
+
+              <Button
+                className='is-primary'
+                variants={['outlined', 'rounded']}
+                fullWidth
+                onClick={goBackToList}
+              >
+                Go Back
+              </Button>
             </Columns.Column>
           </Columns>
-        </div>
+        </Container>
       </PageContainer>
     </div>
   );

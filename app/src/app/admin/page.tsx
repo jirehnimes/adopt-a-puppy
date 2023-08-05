@@ -1,12 +1,11 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { redirect } from 'next/navigation';
+
+import { ADMIN_ROUTES } from '@/consts/routes.consts';
 
 const PageAdminHome = () => {
-  const router = useRouter();
-
-  useEffect(() => router.push('/admin/database/puppies'));
+  redirect(ADMIN_ROUTES.DATABASE.PUPPIES_LIST);
 };
 
 export default PageAdminHome;

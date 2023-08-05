@@ -1,6 +1,9 @@
 'use client';
 
+import { Suspense } from 'react';
+
 import { PageContainer } from '@/components/app';
+import { Container, Loader } from '@/components/common';
 import { FrontPuppiesFilterForm, FrontPuppiesList } from '@/components/pages';
 
 import usePagePuppiesHook from './page-puppies.hook';
@@ -12,10 +15,12 @@ const PagePuppies = () => {
   return (
     <div id='page-puppies'>
       <PageContainer>
-        <div className={`container ${styles.container}`}>
+        <Container className={styles.container}>
           <FrontPuppiesFilterForm form={formFilters} />
-          <FrontPuppiesList puppies={puppies} />
-        </div>
+          <Suspense fallback={<Loader />}>
+            <FrontPuppiesList puppies={puppies} />
+          </Suspense>
+        </Container>
       </PageContainer>
     </div>
   );

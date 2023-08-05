@@ -3,7 +3,8 @@
 import React, { InputHTMLAttributes, ReactNode } from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
 
-import { Field, Input } from '@/components/common';
+import Field from '../../field';
+import Input from '../../input';
 
 type FormInputPropsType = {
   model: UseFormRegisterReturn<any>;

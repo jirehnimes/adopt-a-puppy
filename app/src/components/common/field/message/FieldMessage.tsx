@@ -2,7 +2,7 @@ import React, { FC, ReactNode } from 'react';
 
 type FieldMessagePropsType = {
   children: ReactNode;
-  status?: 'info' | 'success' | 'danger';
+  status?: 'info' | 'success' | 'danger' | 'default';
 };
 
 export type FieldMessageType = FC<FieldMessagePropsType>;

@@ -1,0 +1,25 @@
+@import '../../../../../styles/variables'
+@import '../../../../../styles/mixins'
+
+.front-home-recommendation
+  padding: 8rem 32px
+  background-color: $white
+
+.container
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.title
+  max-width: $tablet
+  text-align: center
+  letter-spacing: 4px
+  font-weight: bold
+
+.list
+  min-width: 100%
+  margin: 4rem 0
+
+@include devices-and-orientation (mobile)
+  .title
+    font-size: 2rem !important

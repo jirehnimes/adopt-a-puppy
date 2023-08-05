@@ -1,4 +1,9 @@
+export { default as FrontHomeHero } from './front/home/hero';
+export { default as FrontHomeRecommendation } from './front/home/recommendation';
+export { default as FrontHomeRecommendationList } from './front/home/recommendation/list';
 export { default as FrontPuppiesFilterForm } from './front/puppies/filter-form';
 export { default as FrontPuppiesList } from './front/puppies/list';
 export { default as AdminDatabasePuppiesList } from './admin/database/puppies/list';
 export { default as FrontPuppyHero } from './front/puppy/hero';
+export { default as FrontAdoptionForm } from './front/adoption/form';
+export { default as FrontAdoptionPuppyProfile } from './front/adoption/puppy-profile';

@@ -1,13 +1,11 @@
 'use client';
 
-import { PageContainer } from '@/components/app';
+import { redirect } from 'next/navigation';
+
+import { APP_ROUTES } from '@/consts/routes.consts';
 
 const PageAdoption = () => {
-  return (
-    <div id='page-adoption'>
-      <PageContainer>ADOPTION PAGE HERE</PageContainer>
-    </div>
-  );
+  redirect(APP_ROUTES.PUPPY_LIST);
 };
 
 export default PageAdoption;

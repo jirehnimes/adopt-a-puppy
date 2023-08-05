@@ -1,4 +1,7 @@
-import { FrontHomeHero, PageContainer } from '@/components/app';
+'use client';
+
+import { PageContainer } from '@/components/app';
+import { FrontHomeHero, FrontHomeRecommendation } from '@/components/pages';
 
 import styles from './page-home.module.sass';
 
@@ -10,6 +13,7 @@ const PageHome = () => {
     >
       <PageContainer>
         <FrontHomeHero />
+        <FrontHomeRecommendation />
       </PageContainer>
     </div>
   );

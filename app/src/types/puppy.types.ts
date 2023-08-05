@@ -1,21 +1,24 @@
+import { StaticImageData } from 'next/image';
+
 import { BOOLEAN_STRING } from '@/consts/common.consts';
 import { PUPPY_GENDER, PUPPY_SIZE } from '@/consts/puppy.consts';
 
 export type PuppyFilterType = {
-  search: string;
-  gender: PUPPY_GENDER[];
-  is_vaccinated: BOOLEAN_STRING[];
-  is_neutered: BOOLEAN_STRING[];
+  search?: string;
+  gender?: PUPPY_GENDER[];
+  is_vaccinated?: BOOLEAN_STRING[];
+  is_neutered?: BOOLEAN_STRING[];
 };
 
 export type PuppyProfileType = {
+  id?: string;
   name: string;
   age: number;
   gender: PUPPY_GENDER;
   size: PUPPY_SIZE;
   is_vaccinated: boolean;
   is_neutered: boolean;
-  photo_url: string;
+  photo_url: string | StaticImageData;
   breed: string;
   traits: string[];
 };

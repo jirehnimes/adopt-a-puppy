@@ -19,9 +19,10 @@ const CardImage = ({ path, alt = 'Image', className = '' }: CardImagePropsType) 
       <figure className='image'>
         <Image
           src={path || DEFAULT_IMAGE}
-          width={100}
-          height={100}
+          width={0}
+          height={0}
           alt={alt}
+          unoptimized
         />
       </figure>
     </div>

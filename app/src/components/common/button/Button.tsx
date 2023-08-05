@@ -2,6 +2,8 @@
 
 import React, { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from 'react';
 
+import { formatDynamicClasses, isClassExist } from '@/helpers/common.helpers';
+
 const ButtonSizeClass = {
   small: 'is-small',
   normal: 'is-normal',
@@ -36,16 +38,14 @@ const Button = ({
   const formattedVariants = variants
     .map((_variant: keyof typeof ButtonVariantClass) => ButtonVariantClass[_variant])
     .join(' ');
-  const classes = [
+  const classes = formatDynamicClasses([
     'button',
     ButtonSizeClass[size],
-    responsive === true ? 'is-responsive' : '',
-    fullWidth === true ? 'is-fullwidth' : '',
+    isClassExist(responsive, 'is-responsive'),
+    isClassExist(fullWidth, 'is-fullwidth'),
     formattedVariants,
     propsClassName,
-  ]
-    .join(' ')
-    .trim();
+  ]);
 
   return (
     <button

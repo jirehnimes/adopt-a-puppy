@@ -1,3 +1,5 @@
+@import '../../../styles/variables/colors'
+
 .title-container
   width: 100%
 
@@ -5,3 +7,16 @@
   display: flex
   justify-content: center
   align-items: center
+
+  & [class^=title]
+    margin-bottom: 8px
+
+  & [class^=subtitle]
+    margin-bottom: 2px
+
+  & [class^=title],
+  & [class^=subtitle]
+    &[class*='is-primary']
+      color: $primary
+    &[class*='is-light']
+      color: $light

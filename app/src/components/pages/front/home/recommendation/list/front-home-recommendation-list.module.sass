@@ -1,0 +1,24 @@
+@import '../../../../../../styles/mixins/box-shadows'
+
+.card
+  border-radius: 20px
+  overflow: hidden
+  cursor: pointer
+  height: 380px
+
+  &:hover
+    @include box-shadow4
+
+.image
+  height: 200px
+  max-height: 200px
+  width: 100%
+  overflow: hidden
+
+  & [class^=image]
+    height: 100%
+
+  & img
+    position: absolute
+    top: -50%
+    left: 0
