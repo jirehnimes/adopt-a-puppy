@@ -9,7 +9,7 @@ import { Button, Columns, Container, Tags } from '@/components/common';
 import { FrontPuppyHero } from '@/components/pages';
 import { APP_COLOR_STYLE } from '@/consts/common.consts';
 import { APP_ROUTES } from '@/consts/routes.consts';
-import { titleCase } from '@/helpers/string.helpers';
+import { ageSentence, titleCase } from '@/helpers/string.helpers';
 
 import usePagePuppyHook from './page-puppy.hook';
 import styles from './page-puppy.module.sass';
@@ -86,7 +86,7 @@ const PagePuppy = ({ params }: PagePuppyPropsType) => {
               <div className='content'>
                 <h2>Other Details</h2>
                 <p className='mb-1'>
-                  <b>Age:</b> {puppy?.age || 0} year/s old.
+                  <b>Age:</b> {ageSentence(puppy?.age)}
                 </p>
                 <p className='mb-1'>
                   <b>Gender:</b> {titleCase(puppy?.gender) || 'N/A'}

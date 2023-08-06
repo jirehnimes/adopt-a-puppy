@@ -1,32 +1,29 @@
-'use client';
+import { Metadata } from 'next';
+import { ReactNode } from 'react';
 
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { useRouter } from 'next/navigation';
-import { ReactNode, useState } from 'react';
-
-import { AdminHeaderActions } from '@/components/app';
-import { Button, Icon, Title } from '@/components/common';
+import { Title } from '@/components/common';
 
 type PageAdminDatabasePuppiesLayoutPropsType = {
   children: ReactNode;
 };
 
-const PageAdminDatabasePuppiesLayout = ({ children }: PageAdminDatabasePuppiesLayoutPropsType) => {
-  const router = useRouter();
-  const [pageType, setPageType] = useState<string>('');
+export const metadata: Metadata = {
+  title: 'Puppies - Admin | Adopt A Puppy',
+  icons: [
+    {
+      rel: 'shortcut icon',
+      href: 'favicon.png',
+      url: '/public/favicon.png',
+      type: 'image/x-icon',
+    },
+  ],
+};
 
+const PageAdminDatabasePuppiesLayout = ({ children }: PageAdminDatabasePuppiesLayoutPropsType) => {
   return (
     <div className='container'>
       <Title>Puppies</Title>
-      <AdminHeaderActions>
-        <Button
-          className='is-success'
-          onClick={() => router.push('/admin/database/puppies/form')}
-        >
-          <Icon icon={faPlus} />
-          <span>Create</span>
-        </Button>
-      </AdminHeaderActions>
+
       {children}
     </div>
   );

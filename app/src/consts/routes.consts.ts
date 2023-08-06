@@ -7,6 +7,7 @@ export const APP_ROUTES = {
 };
 
 export const ADMIN_ROUTES = {
+  HOME: '/admin',
   DATABASE: {
     PUPPIES_LIST: '/admin/database/puppies',
     PUPPIES_FORM: (id?: string) => `/admin/database/puppies/form${!!id === true ? `/${id}` : ''}`,

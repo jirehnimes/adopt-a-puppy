@@ -19,38 +19,38 @@ const FrontHomeRecommendationList = async () => {
           key={puppy?.id}
           size={4}
         >
-          <Card className={styles.card}>
-            <Card.Image
-              path={puppy?.photo_url}
-              className={styles.image}
-            />
-            <Card.Content>
-              <Media>
-                <Media.Content>
-                  <p
-                    className='subtitle is-6'
-                    style={{ margin: 0 }}
-                  >
-                    Hi I&apos;m
-                  </p>
-                  <div>
-                    <span className='title is-4'>{puppy?.name},</span>
-                    <span className='subtitle is-5'>&nbsp;{ageSentence(puppy?.age)}</span>
-                  </div>
-                  <p className='subtitle is-6'>{puppy?.breed}</p>
-                </Media.Content>
-              </Media>
+          <Link href={APP_ROUTES.PUPPY_PROFILE(puppy?.id)}>
+            <Card className={styles.card}>
+              <Card.Image
+                path={puppy?.photo_url}
+                className={styles.image}
+              />
+              <Card.Content>
+                <Media>
+                  <Media.Content>
+                    <p
+                      className='subtitle is-6'
+                      style={{ margin: 0 }}
+                    >
+                      Hi I&apos;m
+                    </p>
+                    <div>
+                      <span className='title is-4'>{puppy?.name},</span>
+                      <span className='subtitle is-5'>&nbsp;{ageSentence(puppy?.age)}</span>
+                    </div>
+                    <p className='subtitle is-6'>{puppy?.breed}</p>
+                  </Media.Content>
+                </Media>
 
-              <Link href={APP_ROUTES.PUPPY_PROFILE(puppy?.id)}>
                 <Button
                   variants={['rounded']}
                   className='is-primary'
                 >
                   Adopt Me
                 </Button>
-              </Link>
-            </Card.Content>
-          </Card>
+              </Card.Content>
+            </Card>
+          </Link>
         </Columns.Column>
       ))}
     </Columns>

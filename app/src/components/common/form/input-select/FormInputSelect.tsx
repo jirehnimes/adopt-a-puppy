@@ -3,8 +3,10 @@
 import React, { ReactNode } from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
 
-import { Field, Select } from '@/components/common';
 import { SelectOptionType } from '@/components/common/select/Select';
+
+import Field from '../../field';
+import Select from '../../select';
 
 type FormInputPropsType = {
   options: SelectOptionType[];

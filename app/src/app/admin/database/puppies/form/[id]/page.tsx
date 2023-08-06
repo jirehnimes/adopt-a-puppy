@@ -37,7 +37,7 @@ const PageAdminDatabasePuppiesFormUpdate = () => {
   ];
 
   return (
-    <div>
+    <div className='mt-6'>
       <Columns flex>
         <Columns.Column size={8}>
           <Form onSubmit={submitForm}>
@@ -126,11 +126,11 @@ const PageAdminDatabasePuppiesFormUpdate = () => {
                 <Columns.Column size={4}>
                   <Field.Control>
                     <Button
-                      type='submit'
-                      className='is-primary'
+                      variants={['outlined']}
                       fullWidth
+                      onClick={() => router.back()}
                     >
-                      Update Puppy
+                      Go Back
                     </Button>
                   </Field.Control>
                 </Columns.Column>
@@ -150,11 +150,11 @@ const PageAdminDatabasePuppiesFormUpdate = () => {
                 <Columns.Column size={4}>
                   <Field.Control>
                     <Button
-                      variants={['outlined']}
+                      type='submit'
+                      className='is-primary'
                       fullWidth
-                      onClick={() => router.back()}
                     >
-                      Go Back
+                      Update Puppy
                     </Button>
                   </Field.Control>
                 </Columns.Column>

@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { ReactNode } from 'react';
 
+import { AdminHeaderActions } from '@/components/app';
 import { Button, Columns, Field, Form, FormInput, FormInputSelect } from '@/components/common';
 import { BOOLEAN_STRING } from '@/consts/common.consts';
 import { PUPPY_GENDER, PUPPY_SIZE } from '@/consts/puppy.consts';
@@ -48,11 +49,11 @@ const PageAdminDatabasePuppiesFormCreate = () => {
   ];
 
   return (
-    <div>
-      <Columns flex>
+    <div className='mt-6'>
+      <Columns>
         <Columns.Column size={8}>
           <Form onSubmit={submitForm}>
-            <Columns flex>
+            <Columns>
               <Columns.Column size={6}>
                 <FormInput
                   label='Name'
@@ -175,15 +176,15 @@ const PageAdminDatabasePuppiesFormCreate = () => {
             />
 
             <Form.Actions>
-              <Columns flex>
+              <Columns>
                 <Columns.Column size={4}>
                   <Field.Control>
                     <Button
-                      type='submit'
-                      className='is-primary'
+                      variants={['outlined']}
                       fullWidth
+                      onClick={() => router.back()}
                     >
-                      Register Puppy
+                      Go Back
                     </Button>
                   </Field.Control>
                 </Columns.Column>
@@ -203,11 +204,11 @@ const PageAdminDatabasePuppiesFormCreate = () => {
                 <Columns.Column size={4}>
                   <Field.Control>
                     <Button
-                      variants={['outlined']}
+                      type='submit'
+                      className='is-primary'
                       fullWidth
-                      onClick={() => router.back()}
                     >
-                      Go Back
+                      Register Puppy
                     </Button>
                   </Field.Control>
                 </Columns.Column>

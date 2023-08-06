@@ -1,9 +1,11 @@
 'use client';
 
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from 'next/navigation';
 import { ReactNode, Suspense } from 'react';
 
-import { Loader } from '@/components/common';
+import { AdminHeaderActions } from '@/components/app';
+import { Button, Icon, Loader } from '@/components/common';
 import { AdminDatabasePuppiesList } from '@/components/pages';
 
 import useAdminDatabasePuppiesHook from './admin-database-puppies.hook';
@@ -15,6 +17,15 @@ const PageAdminDatabasePuppies = () => {
 
   return (
     <div className='admin__database__puppies'>
+      <AdminHeaderActions>
+        <Button
+          className='is-success'
+          onClick={() => router.push('/admin/database/puppies/form')}
+        >
+          <Icon icon={faPlus} />
+          <span>Create</span>
+        </Button>
+      </AdminHeaderActions>
       <table className={`table is-striped is-fullwidth ${styles.table}`}>
         <thead>
           <tr>
