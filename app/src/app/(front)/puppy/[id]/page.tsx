@@ -39,6 +39,7 @@ const PagePuppy = ({ params }: PagePuppyPropsType) => {
                   height={0}
                   alt='Puppy profile picture'
                   unoptimized
+                  fill
                 />
               </div>
             </Columns.Column>

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 
-import logo from '@/assets/images/logo.png';
+import logo from '@/assets/images/logo.webp';
 import { Navbar } from '@/components/common';
 
 import styles from './front-navbar-brand.module.sass';
@@ -14,6 +14,8 @@ const FrontNavbarBrand = () => {
           src={logo}
           height={40}
           alt='Adopt A Puppy'
+          unoptimized
+          priority
         />
       </Navbar.Item>
     </Navbar.Brand>

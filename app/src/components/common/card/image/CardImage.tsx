@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React, { FC } from 'react';
 
-import DEFAULT_IMAGE from '@/assets/images/logo-color.webp';
+import defaultImage from '@/assets/images/logo-color.webp';
 
 type CardImagePropsType = {
   path?: string;
@@ -18,11 +18,13 @@ const CardImage = ({ path, alt = 'Image', className = '' }: CardImagePropsType) 
     <div className={cardImageClass}>
       <figure className='image'>
         <Image
-          src={path || DEFAULT_IMAGE}
+          src={path || defaultImage}
           width={0}
           height={0}
           alt={alt}
           unoptimized
+          fill
+          style={{ objectFit: 'cover' }}
         />
       </figure>
     </div>

@@ -1,11 +1,11 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React from 'react';
 
 import PuppyAPI from '@/api/puppy.api';
 import { Button, Card, Columns, Media } from '@/components/common';
+import { APP_ROUTES } from '@/consts/routes.consts';
 import { ageSentence } from '@/helpers/string.helpers';
 
-import { APP_ROUTES } from '../../../../../../consts/routes.consts';
 import styles from './front-home-recommendation-list.module.sass';
 
 const FrontHomeRecommendationList = async () => {

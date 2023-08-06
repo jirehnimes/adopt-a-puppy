@@ -26,6 +26,8 @@ const FrontAdoptionPuppyProfile = ({ puppy }: FrontAdoptionPuppyProfilePropsType
           height={0}
           alt='Puppy profile picture'
           unoptimized
+          fill
+          style={{ objectFit: 'cover' }}
         />
       </ImageContainer>
 
