@@ -11,6 +11,14 @@ type AdminLayoutPropsType = {
 
 export const metadata: Metadata = {
   title: 'Admin | Adopt A Puppy',
+  icons: [
+    {
+      rel: 'shortcut icon',
+      href: 'favicon.png',
+      url: '/public/favicon.png',
+      type: 'image/x-icon',
+    },
+  ],
 };
 
 const AdminLayout = ({ children }: AdminLayoutPropsType) => {

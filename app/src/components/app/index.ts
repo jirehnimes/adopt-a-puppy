@@ -10,3 +10,4 @@ export { default as AdminSidebarBrand } from './admin/sidebar/brand';
 export { default as ButtonDelete } from './button-delete';
 export { default as AdminHeaderActions } from './admin/header-actions';
 export { default as AdminBox } from './admin/box';
+export { default as ImageLogo } from './image/logo';

@@ -1,0 +1,33 @@
+@import '../../../../../styles/mixins'
+
+.container
+  height: 420px
+
+.content-container
+  position: absolute
+  top: 12%
+  left: 0
+  z-index: 2
+  transform: translateY(-12%)
+
+.logo
+  max-width: 600px
+
+  @include devices-and-orientation (tablet)
+    width: 100%
+
+.image-container
+  position: absolute
+  top: 50%
+  left: 0
+  width: 100%
+  text-align: right !important
+  z-index: 1
+  transform: translateY(-50%)
+
+.image
+  width: 600px
+  height: auto
+
+  @include devices-and-orientation (mobile)
+    width: 100%
