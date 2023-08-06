@@ -11,8 +11,10 @@ type FilterCheckboxesNeuteredPropsType = {
 
 const FilterCheckboxesNeutered = ({ model }: FilterCheckboxesNeuteredPropsType) => {
   return (
-    <FormInputCheckboxes className={styles['filter-checkboxes-neutered']}>
-      <FormInputCheckboxes.Label full={false}>Is Neutered?</FormInputCheckboxes.Label>
+    <FormInputCheckboxes
+      label={<FormInputCheckboxes.Label full={false}>Is Neutered?</FormInputCheckboxes.Label>}
+      className={styles['filter-checkboxes-neutered']}
+    >
       <FormInputCheckboxes.Checkbox
         model={model}
         value={true}

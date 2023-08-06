@@ -1,4 +1,5 @@
 export const APP_ROUTES = {
+  HOME: '/',
   PUPPY_LIST: '/puppies',
   PUPPY_PROFILE: (id: string) => `/puppy/${id}`,
   ADOPTION_FORM: (id: string) => `/adoption/${id}`,

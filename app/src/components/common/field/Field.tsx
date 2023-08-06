@@ -1,5 +1,7 @@
 import React, { FC, ReactNode } from 'react';
 
+import { formatDynamicClasses, isClassExist } from '@/helpers/common.helpers';
+
 import FieldBody, { FieldBodyType } from './body/FieldBody';
 import FieldControl, { FieldControlType } from './control/FieldControl';
 import FieldIcon, { FieldIconType } from './icon/FieldIcon';
@@ -33,16 +35,14 @@ const Field: FieldType = ({
   className,
   children,
 }: FieldPropsType) => {
-  const classes = [
+  const classes = formatDynamicClasses([
     'field',
-    advance === true ? 'has-addons' : '',
-    grouped === true ? 'is-grouped' : '',
-    grouped === true && !!groupAlign === true ? `is-grouped-${groupAlign}` : '',
-    horizontal === true ? 'is-horizontal' : '',
+    isClassExist(advance, 'has-addons'),
+    isClassExist(grouped, 'is-grouped'),
+    isClassExist(grouped === true && !!groupAlign === true, `is-grouped-${groupAlign}`),
+    isClassExist(horizontal, 'is-horizontal'),
     className,
-  ]
-    .join(' ')
-    .trim();
+  ]);
 
   return <div className={classes}>{children}</div>;
 };

@@ -12,8 +12,10 @@ type FilterCheckboxesGenderPropsType = {
 
 const FilterCheckboxesGender = ({ model }: FilterCheckboxesGenderPropsType) => {
   return (
-    <FormInputCheckboxes className={styles['filter-checkboxes-gender']}>
-      <FormInputCheckboxes.Label full={false}>Gender</FormInputCheckboxes.Label>
+    <FormInputCheckboxes
+      label={<FormInputCheckboxes.Label full={false}>Gender</FormInputCheckboxes.Label>}
+      className={styles['filter-checkboxes-gender']}
+    >
       <FormInputCheckboxes.Checkbox
         model={model}
         value={PUPPY_GENDER.MALE}

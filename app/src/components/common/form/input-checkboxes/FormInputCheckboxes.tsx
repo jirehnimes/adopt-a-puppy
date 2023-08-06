@@ -13,6 +13,7 @@ type FormInputCheckboxesChildrenType = {
 };
 
 type FormInputCheckboxesPropsType = {
+  label: ReactNode;
   children: ReactNode;
   horizontal?: boolean;
   className?: string;
@@ -21,25 +22,19 @@ type FormInputCheckboxesPropsType = {
 type FormInputCheckboxesType = FC<FormInputCheckboxesPropsType> & FormInputCheckboxesChildrenType;
 
 const FormInputCheckboxes: FormInputCheckboxesType = ({
+  label,
   children,
   horizontal = true,
   className,
 }: FormInputCheckboxesPropsType) => {
-  const labels = Children.toArray(children).filter(
-    (child: any) => child?.type?.name === FieldLabel.name,
-  );
-  const others = Children.toArray(children).filter(
-    (child: any) => child?.type?.name !== FieldLabel.name,
-  );
-
   return (
     <Field
       advance={false}
       horizontal={horizontal}
       className={className}
     >
-      {labels}
-      <Field.Body horizontal={horizontal}>{others}</Field.Body>
+      {label}
+      <Field.Body horizontal={horizontal}>{children}</Field.Body>
     </Field>
   );
 };

@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { Suspense } from 'react';
 
 import FormSuccessSVG from '@/assets/images/form-success.svg';
@@ -9,6 +10,7 @@ import { Button, Columns, Container, FormActions, Title } from '@/components/com
 import { FrontAdoptionForm, FrontAdoptionPuppyProfile } from '@/components/pages';
 import { APP_COLOR_STYLE } from '@/consts/common.consts';
 
+import { APP_ROUTES } from '../../../../../consts/routes.consts';
 import usePageAdoptionSuccessHook from './page-adoption-success.hook';
 import styles from './page-adoption-success.module.sass';
 
@@ -54,21 +56,25 @@ const PageAdoptionSuccess = ({ params }: PageAdoptionPropsType) => {
                 </Title>
 
                 <FormActions>
-                  <Button
-                    variants={['rounded']}
-                    className='is-primary'
-                    fullWidth
-                  >
-                    Go Back To List
-                  </Button>
+                  <Link href={APP_ROUTES.PUPPY_LIST}>
+                    <Button
+                      variants={['rounded']}
+                      className='is-primary'
+                      fullWidth
+                    >
+                      Go Back To List
+                    </Button>
+                  </Link>
 
-                  <Button
-                    variants={['rounded', 'outlined']}
-                    className='is-primary'
-                    fullWidth
-                  >
-                    Go To Homepage
-                  </Button>
+                  <Link href={APP_ROUTES.HOME}>
+                    <Button
+                      variants={['rounded', 'outlined']}
+                      className='is-primary'
+                      fullWidth
+                    >
+                      Go To Homepage
+                    </Button>
+                  </Link>
                 </FormActions>
               </div>
             </Columns.Column>

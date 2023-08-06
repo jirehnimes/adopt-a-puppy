@@ -11,8 +11,10 @@ type FilterCheckboxesVaccinatedPropsType = {
 
 const FilterCheckboxesVaccinated = ({ model }: FilterCheckboxesVaccinatedPropsType) => {
   return (
-    <FormInputCheckboxes className={styles['filter-checkboxes-vaccinated']}>
-      <FormInputCheckboxes.Label full={false}>Is Vaccinated?</FormInputCheckboxes.Label>
+    <FormInputCheckboxes
+      label={<FormInputCheckboxes.Label full={false}>Is Vaccinated?</FormInputCheckboxes.Label>}
+      className={styles['filter-checkboxes-vaccinated']}
+    >
       <FormInputCheckboxes.Checkbox
         model={model}
         value={true}
