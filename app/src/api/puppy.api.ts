@@ -9,8 +9,6 @@ import {
 import { $httpDelete, $httpGet, $httpPatch, $httpPost } from './_api';
 
 const PuppyAPI = () => {
-  console.log('API URL', process?.env?.API_URL);
-
   const PUPPY_API_URL = (process?.env?.API_URL || 'http://localhost:3000/api') + '/puppy';
   const API_REVALIDATE = Number(process?.env?.API_REVALIDATE || 5000);
 

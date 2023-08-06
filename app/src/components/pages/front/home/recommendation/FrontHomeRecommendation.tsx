@@ -30,9 +30,7 @@ const FrontHomeRecommendation = () => {
         </Title>
 
         <div className={styles.list}>
-          <Suspense fallback={<Loader />}>
-            <FrontHomeRecommendationList />
-          </Suspense>
+          <FrontHomeRecommendationList />
         </div>
 
         <Link href={APP_ROUTES.PUPPY_LIST}>
